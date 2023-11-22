@@ -1,0 +1,81 @@
+{% include "includes/base.html" %}
+
+
+
+<div class="container mt-5 ">
+<form action="/create" method="get">
+<div class="card">
+  <div class="row">
+    <aside class="col-sm-5 border-right">
+      <input type="number" name="id" value="{{results[0]}}" hidden>
+<article class="gallery-wrap"> 
+<div class="img-big-wrap">
+  <div> <a href="#"><img id="img_utl" src="{{results[3]}}"></a></div>
+  <input type="hidden" name="img_url" value="{{results[3]}}">
+</div> 
+</article> 
+    </aside>
+    <aside class="col-sm-7">
+<article class="card-body p-5">
+  <h3 id="name" class="title mb-3">{{results[1]}}</h3>
+  <input type="hidden" name="name" value="{{results[1]}}">
+<p class="price-detail-wrap"> 
+  <span class="price h3 text-primary"> 
+    <span class="currency">R$ </span><span class="num">{{results[6]}}</span>
+    <input  type="number" name="valor" value="{{results[6]}}" hidden>
+  </span> 
+
+</p> 
+
+<dl class="item-property">
+  <dt>Descrição</dt>
+  <dd>{{results[2]}}</dd>
+</dl>
+<hr>
+  <div class="row">
+    <div class="col-sm-5">
+      <dl class="param param-inline">
+        <dt>Quantidade: </dt>
+        <dd>
+          <select id="quant" name="quant" class="form-control form-control-sm" style="width:70px;">
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            <option value="6"> 6 </option>
+            <option value="7"> 7 </option>
+
+          </select>
+        </dd>
+      </dl>  
+    </div>
+    <div class="col-sm-7" style="display: none;">
+      <dl class="param param-inline">
+          <dt>Tamanho </dt>
+          <dd>
+            <select id="tamanho" name="tamanho" class="form-control form-control-sm" style="width:70px;">
+              <option value="1"></option>
+            </select>
+          </dd>
+      </dl>
+    </div>
+  </div> 
+  <hr>
+  {% if not 'name' in session: %}
+        <a href="/login/" class="btn btn-lg btn-primary text-uppercase"> Comprar agora </a>
+    {%else%}
+        <a href="/carrinho/" class="btn btn-lg btn-primary text-uppercase"> Comprar agora </a>        
+    {% endif %}
+
+  <!-- <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Adicionar no carrinho </a> -->
+  <input type="submit" value="Adicionar no carrinho" class="btn btn-lg btn-outline-primary text-uppercase">
+</article> 
+    </aside> 
+  </div> 
+</form>
+</div> 
+
+
+</div>
+</div>

@@ -1,0 +1,50 @@
+{% include "includes/base.html" %}
+<div class="intro-banner-wrap">
+  <img src="/static/images/banners/bannerFaixa.jpg" class="img-fluid rounded">
+</div>
+<section class="section-content">
+  <div class="container">
+    <header class="section-heading">
+      <h6 class="section-title text-primary">
+        <small>Produtos/{{title.capitalize()}}</small>
+      </h6>
+    </header>
+    
+
+    <div class="row">
+      {% for product in products %}
+      <div class="col-md-3">
+        <div href="#" class="card card-product-grid">
+          <a href="#" class="img-wrap">
+            <img src="{{product[3]}}" class="w-100" />
+          </a>
+          <figcaption class="info-wrap">
+            <a href="/produtos/{{title}}/{{product[0]}}" class="title"
+              >{{product[1].capitalize()}}</a
+            >
+            <div class="rating-wrap">
+              <ul class="rating-stars">
+                <li style="width: 80%" class="stars-active">
+                  <i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i>
+                </li>
+                <li>
+                  <i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i>
+                </li>
+              </ul>
+              <span class="label-rating text-muted"> 30 avaliações</span>
+            </div>
+            <div class="price mt-1">{{product[6]}}</div>
+            <!-- price-wrap.// -->
+          </figcaption>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+  </div>
+  <!-- container .//  -->
+</section>
